@@ -5,24 +5,23 @@ import ExponentThree from "./components/ExponentThree";
 import ExponentFour from "./components/ExponentFour";
 import ExponentFive from "./components/ExponentFive";
 import ExponentSix from "./components/ExponentSix";
+import { useState } from "react";
 
-
-function App () {
+function App() {
+  const [count, setCount] = useState(0);
+  
   return (
     <div className="App">
       <h2><em>Counter</em></h2>
-  
-      <Counter/>
-
+      <Counter onCounter={{ count, setCount }} /> {/* Paso un objeto */}
       <br />
       <h2><em>Exponents</em></h2>
-
       <div className="container">
-        <ExponentTwo />
-        <ExponentThree />
-        <ExponentFour />
-        <ExponentFive />
-        <ExponentSix />
+        <ExponentTwo onCounter={{ count, setCount }}  />
+        <ExponentThree onCounter={{ count, setCount }}  />
+        <ExponentFour onCounter={{ count, setCount }}  />
+        <ExponentFive onCounter={{ count, setCount }}  />
+        <ExponentSix onCounter={{ count, setCount }}  />
       </div>
     </div>
   );
